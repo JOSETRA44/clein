@@ -3,12 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Windows Android device recovery CLI and MCP server",
+  "description": "Android developer toolkit: colourful CLI and MCP server for device monitoring, storage analysis, apps, files, logs and encrypted backups",
+  "bin": {
+    "androidctl": "dist/main/cli.js",
+    "androidctl-mcp": "dist/main/mcp.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "node dist/cli.js",
-    "mcp": "node dist/mcp.js",
-    "test": "node --test --import tsx test/**/*.test.ts"
+    "typecheck": "tsc -p tsconfig.check.json",
+    "start": "node dist/main/cli.js",
+    "mcp": "node dist/main/mcp.js",
+    "test": "node --test --import tsx \"test/**/*.test.ts\"",
+    "check": "npm run typecheck && npm test"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1",

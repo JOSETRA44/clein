@@ -4,3 +4,4 @@ dist/
 *.session
 *.secret
 *.log
+*.partial
